@@ -1,5 +1,7 @@
 package com.example.sep4_architecture.network;
 
+import com.example.sep4_architecture.data.Measurement;
+
 import java.io.IOException;
 
 import retrofit2.Retrofit;
@@ -17,9 +19,9 @@ public class GreenHouseClient {
         this.service = retrofit.create(GreenHouseService.class);
     }
 
-    public double getLastTemperature() throws IOException {
+    public Measurement getLastMeasurement() throws IOException {
 
-        return service.lastTemperature()
+        return service.lastMeasurement()
                 .execute()
                 .body();
     }
