@@ -1,28 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorNavbar"
-    android:paddingLeft="60dp"
-    tools:context=".CurrentData">
+    android:padding="5dp"
+    tools:context="client.view.CurrentData">
 
     <ImageView
         android:id="@+id/termometer"
-        android:layout_width="88dp"
-        android:layout_height="67dp"
-        android:src="@drawable/thermometer" />
+        android:layout_width="82dp"
+        android:layout_height="54dp"
+        android:src="@drawable/thermometer"
+        app:layout_constraintBottom_toBottomOf="@+id/temperatureTV"
+        app:layout_constraintEnd_toStartOf="@+id/temperatureTV"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/temperatureTv"
-        android:layout_width="273dp"
-        android:layout_height="67dp"
-        android:cursorVisible="false"
-        android:paddingLeft="80dp"
-        android:paddingTop="17dp"
-        android:text="Temperature: "
-        android:textSize="24sp"
-        android:typeface="monospace" />
+        android:id="@+id/currentTemp"
+        android:layout_width="73dp"
+        android:layout_height="54dp"
+        app:layout_constraintBottom_toBottomOf="@+id/temperatureTV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/temperatureTV" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/temperatureTV"
+        android:layout_width="201dp"
+        android:layout_height="54dp"
+        android:cursorVisible="false"
+        android:paddingTop="17dp"
+        android:text="@string/temperature"
+        android:textSize="24sp"
+        android:typeface="monospace"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/currentTemp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/termometer"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.053" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

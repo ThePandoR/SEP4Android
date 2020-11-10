@@ -1,14 +1,17 @@
-package com.example.sep4_architecture.data;
+package com.example.sep4_architecture.model;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
 public class Measurement {
 
-    public Measurement() {}
-
-    private int id;
-    private int id_device;
+    private Long id;
+    private Long id_device;
     private LocalDate date;
     private LocalTime time;
     private int temperature;

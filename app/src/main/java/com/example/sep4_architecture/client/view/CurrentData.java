@@ -2,13 +2,22 @@ package com.example.sep4_architecture.client.view;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 
+import com.example.sep4_architecture.MainActivity;
 import com.example.sep4_architecture.R;
-import com.example.sep4_architecture.data.Measurement;
+import com.example.sep4_architecture.model.Measurement;
+import com.example.sep4_architecture.viewModel.CurrentDataVM;
+
+import java.io.IOException;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,6 +33,10 @@ public class CurrentData extends Fragment {
     // TODO: Rename and change types of parameters
     private Measurement measurement;
 
+    private CurrentDataVM viewModel;
+
+    private TextView displayTemperature;
+
     public CurrentData() {
         // Required empty public constructor
     }
@@ -32,18 +45,34 @@ public class CurrentData extends Fragment {
     public static CurrentData newInstance(Measurement measurement) {
         CurrentData fragment = new CurrentData();
         Bundle args = new Bundle();
-        args.put(MEASUREMENT, measurement);
+        //args.put(MEASUREMENT, measurement);
 
         fragment.setArguments(args);
         return fragment;
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            measurement = getArguments().getString(MEASUREMENT);
-        }
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+
+        displayTemperature = view.findViewById(R.id.currentTemp);
+        System.out.println(displayTemperature);
+
+        viewModel = ViewModelProviders.of(this).get(CurrentDataVM.class);
+        viewModel.getMeasurement().observe(this, new Observer<Measurement>() {
+            @Override
+            public void onChanged(Measurement measurement) {
+                displayTemperature.setText(measurement.getTemperature());
+            }
+        });
+
+        new Thread(() -> {
+            try {
+                viewModel.update();
+            } catch (IOException e) {
+                // show fancy popup
+                throw new RuntimeException(e);
+            }
+        }).start();
     }
 
     @Override
