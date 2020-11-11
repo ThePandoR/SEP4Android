@@ -8,8 +8,13 @@ import com.example.sep4_architecture.model.Measurement;
 import com.example.sep4_architecture.network.GreenHouseClient;
 
 import java.io.IOException;
+import java.util.SortedMap;
+
 
 import lombok.Getter;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 @Getter
 public class CurrentDataVM extends ViewModel {
@@ -19,12 +24,22 @@ public class CurrentDataVM extends ViewModel {
 
     // public CurrentDataVM(GreenHouseClient client) {
     public CurrentDataVM() {
-        this.client = new GreenHouseClient("http://192.168.137.1:8080");
+        this.client = new GreenHouseClient("<DATA SERVER ADDRESS HERE>");
         measurement = new MutableLiveData<Measurement>();
     }
 
     public void update() throws IOException {
-        measurement.setValue(client.getLastMeasurement());
+        client.requestLastMeasurement(new Callback<Measurement>() {
+            public void onResponse(Call<Measurement> call, Response<Measurement> measurementResponse) {
+                measurement.setValue(measurementResponse.body());
+            }
+
+            @Override
+            public void onFailure(Call<Measurement> call, Throwable t) {
+                System.out.println("Network error");
+                throw new RuntimeException(t);
+            }
+        });
     }
 
     public LiveData<Measurement> getMeasurement(){

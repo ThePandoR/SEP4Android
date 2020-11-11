@@ -55,24 +55,16 @@ public class CurrentData extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
         displayTemperature = view.findViewById(R.id.currentTemp);
-        System.out.println(displayTemperature);
 
         viewModel = ViewModelProviders.of(this).get(CurrentDataVM.class);
-        viewModel.getMeasurement().observe(this, new Observer<Measurement>() {
-            @Override
-            public void onChanged(Measurement measurement) {
-                displayTemperature.setText(measurement.getTemperature());
-            }
-        });
+        viewModel.getMeasurement().observe(this, measurement -> displayTemperature.setText("" + measurement.getTemperature()));
 
-        new Thread(() -> {
-            try {
-                viewModel.update();
-            } catch (IOException e) {
-                // show fancy popup
-                throw new RuntimeException(e);
-            }
-        }).start();
+        try {
+            viewModel.update();
+        } catch (IOException e) {
+            // TODO handle error
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
