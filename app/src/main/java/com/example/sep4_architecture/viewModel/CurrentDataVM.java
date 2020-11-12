@@ -8,7 +8,6 @@ import com.example.sep4_architecture.model.Measurement;
 import com.example.sep4_architecture.network.GreenHouseClient;
 
 import java.io.IOException;
-import java.util.SortedMap;
 
 
 import lombok.Getter;
@@ -24,7 +23,7 @@ public class CurrentDataVM extends ViewModel {
 
     // public CurrentDataVM(GreenHouseClient client) {
     public CurrentDataVM() {
-        this.client = new GreenHouseClient("http://192.168.137.1:8080/");
+        this.client = new GreenHouseClient("https://localhost:8080/");
         measurement = new MutableLiveData<Measurement>();
     }
 
