@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorNavbar"
@@ -9,42 +10,125 @@
     tools:context="client.view.CurrentData">
 
     <ImageView
-        android:id="@+id/thermometer"
-        android:layout_width="50dp"
-        android:layout_height="0dp"
+        android:id="@+id/termometer"
+        android:layout_width="82dp"
+        android:layout_height="54dp"
         android:src="@drawable/thermometer"
         app:layout_constraintBottom_toBottomOf="@+id/temperatureTV"
         app:layout_constraintEnd_toStartOf="@+id/temperatureTV"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/temperatureTV" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/currentTemp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/temp_label_default"
+        android:layout_width="73dp"
+        android:layout_height="54dp"
         android:textSize="24sp"
+        android:typeface="monospace"
         app:layout_constraintBottom_toBottomOf="@+id/temperatureTV"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/temperatureTV"
-        app:layout_constraintTop_toTopOf="@+id/temperatureTV" />
+        app:layout_constraintStart_toEndOf="@+id/temperatureTV" />
 
     <TextView
         android:id="@+id/temperatureTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="201dp"
+        android:layout_height="54dp"
         android:cursorVisible="false"
+        android:paddingTop="17dp"
         android:text="@string/temperature"
         android:textSize="24sp"
         android:typeface="monospace"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/currentTemp"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/thermometer"
+        app:layout_constraintStart_toEndOf="@+id/termometer"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.06" />
+        app:layout_constraintVertical_bias="0.134" />
+
+    <TextView
+        android:id="@+id/HumidityTV"
+        android:layout_width="201dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="4dp"
+        android:text="Humidity:"
+        android:textSize="24sp"
+        android:typeface="monospace"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/temperatureTV"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.329" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="82dp"
+        android:layout_height="54dp"
+        android:src="@drawable/drop"
+        app:layout_constraintBottom_toBottomOf="@+id/HumidityTV"
+        app:layout_constraintStart_toStartOf="@+id/termometer" />
+
+    <TextView
+        android:id="@+id/currentHumidity"
+        android:layout_width="73dp"
+        android:layout_height="54dp"
+        android:textSize="24sp"
+        android:typeface="monospace"
+        app:layout_constraintBottom_toBottomOf="@+id/HumidityTV"
+        app:layout_constraintEnd_toEndOf="@+id/currentTemp" />
+
+    <TextView
+        android:id="@+id/co2TV"
+        android:layout_width="201dp"
+        android:layout_height="54dp"
+        android:text="CO2:"
+        android:textSize="24sp"
+        android:typeface="monospace"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/HumidityTV"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.53" />
+
+    <TextView
+        android:id="@+id/lightTV"
+        android:layout_width="201dp"
+        android:layout_height="54dp"
+        android:text="Light:"
+        android:textSize="24sp"
+        android:typeface="monospace"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/co2TV"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.729" />
+
+    <ImageView
+        android:id="@+id/light"
+        android:layout_width="82dp"
+        android:layout_height="54dp"
+        android:src="@drawable/idea"
+        app:layout_constraintBottom_toBottomOf="@+id/lightTV"
+        app:layout_constraintStart_toStartOf="@+id/co2" />
+
+    <ImageView
+        android:id="@+id/co2"
+        android:layout_width="82dp"
+        android:layout_height="54dp"
+        android:src="@drawable/carbon_dioxide"
+        app:layout_constraintBottom_toBottomOf="@+id/co2TV"
+        app:layout_constraintStart_toStartOf="@+id/imageView5" />
+
+    <TextView
+        android:id="@+id/currentCo2"
+        android:layout_width="73dp"
+        android:layout_height="54dp"
+        android:typeface="monospace"
+        app:layout_constraintBottom_toBottomOf="@+id/co2TV"
+        app:layout_constraintEnd_toEndOf="@+id/currentHumidity" />
+
+    <Switch
+        android:id="@+id/lightSwitch"
+        android:layout_width="73dp"
+        android:layout_height="54dp"
+        app:layout_constraintBottom_toBottomOf="@+id/lightTV"
+        app:layout_constraintEnd_toEndOf="@+id/currentCo2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
