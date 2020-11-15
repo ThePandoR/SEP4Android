@@ -36,6 +36,8 @@ public class CurrentData extends Fragment {
     private CurrentDataVM viewModel;
 
     private TextView displayTemperature;
+    private TextView displayHumidity;
+    private TextView displayCo2;
 
     public CurrentData() {
         // Required empty public constructor
@@ -55,9 +57,13 @@ public class CurrentData extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
         displayTemperature = view.findViewById(R.id.currentTemp);
+        displayHumidity = view.findViewById(R.id.currentHumidity);
+        displayCo2 = view.findViewById(R.id.currentCo2);
 
         viewModel = ViewModelProviders.of(this).get(CurrentDataVM.class);
         viewModel.getMeasurement().observe(this, measurement -> displayTemperature.setText("" + measurement.getTemperature()));
+        viewModel.getMeasurement().observe(this, measurement -> displayHumidity.setText("" + measurement.getHumidity()));
+        viewModel.getMeasurement().observe(this, measurement -> displayCo2.setText("" + measurement.getCo2()));
 
         try {
             viewModel.update();

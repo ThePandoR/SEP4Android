@@ -185,7 +185,7 @@
             android:textSize="24sp" />
 
         <Switch
-            android:id="@+id/switch1"
+            android:id="@+id/lightSwitch"
             android:layout_width="30dp"
             android:layout_height="50dp"
             android:layout_weight="1"
