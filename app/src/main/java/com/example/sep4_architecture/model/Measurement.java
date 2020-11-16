@@ -1,7 +1,7 @@
 package com.example.sep4_architecture.model;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import org.threeten.bp.LocalDate;
+import org.threeten.bp.LocalTime;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

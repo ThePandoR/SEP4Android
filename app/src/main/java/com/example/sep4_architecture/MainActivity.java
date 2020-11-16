@@ -9,6 +9,7 @@ import android.os.Bundle;
 import com.example.sep4_architecture.client.view.PagerAdapter;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
+import com.jakewharton.threetenabp.AndroidThreeTen;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        AndroidThreeTen.init(this);
+
         setContentView(R.layout.activity_main);
 
         tabLayout = findViewById(R.id.tabLayout);

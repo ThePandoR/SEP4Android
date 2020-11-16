@@ -7,7 +7,7 @@
     android:background="#258BC34A"
     android:orientation="vertical"
     tools:context="client.view.CurrentData"
-    android:id="@+id/frameLayout">
+    android:id="@+id/notFrameLayout">
 
     <TextView
         android:id="@+id/textViewCD"
@@ -51,8 +51,8 @@
 
         <TextView
             android:id="@+id/humidityTV"
-            android:layout_width="180dp"
-            android:layout_height="54dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp"
@@ -63,8 +63,8 @@
 
         <TextView
             android:id="@+id/currentTemp"
-            android:layout_width="60dp"
-            android:layout_height="54dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/quando"
             android:textSize="24dp" />
@@ -92,8 +92,8 @@
 
         <TextView
             android:id="@+id/co2TV"
-            android:layout_width="180dp"
-            android:layout_height="54dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp"
@@ -104,8 +104,8 @@
 
         <TextView
             android:id="@+id/currentHumidity"
-            android:layout_width="60dp"
-            android:layout_height="54dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/quando"
             android:textSize="24dp" />
@@ -133,8 +133,8 @@
 
         <TextView
             android:id="@+id/coTV"
-            android:layout_width="180dp"
-            android:layout_height="54dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp"
@@ -145,8 +145,8 @@
 
         <TextView
             android:id="@+id/currentCo2"
-            android:layout_width="60dp"
-            android:layout_height="54dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/quando"
             android:textSize="24dp" />
@@ -174,8 +174,8 @@
 
         <TextView
             android:id="@+id/lightTV"
-            android:layout_width="150dp"
-            android:layout_height="54dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="11dp"
             android:layout_marginBottom="15dp"
@@ -186,11 +186,11 @@
 
         <Switch
             android:id="@+id/lightSwitch"
-            android:layout_width="30dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginRight="50dp"
-            android:paddingTop="30dp"/>
+            android:layout_weight="1"
+            android:paddingTop="30dp" />
 
     </LinearLayout>
 
