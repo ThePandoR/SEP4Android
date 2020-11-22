@@ -38,6 +38,7 @@ dependencies {
 
     // Java 8 Time API backport
     implementation 'com.jakewharton.threetenabp:threetenabp:1.3.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     compileOnly 'org.projectlombok:lombok:1.18.16'
     annotationProcessor 'org.projectlombok:lombok:1.18.16'
