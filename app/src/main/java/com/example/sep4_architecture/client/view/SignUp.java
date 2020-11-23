@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.sep4_architecture.R;
 
@@ -25,6 +27,13 @@ public class SignUp extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    TextView nameLogin;
+    TextView signupEmail;
+    TextView signupPass;
+    TextView signupPassConf;
+    Button signupButton;
+    float v = 0;
 
     public SignUp() {
         // Required empty public constructor
@@ -61,6 +70,32 @@ public class SignUp extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_signup, container, false);
+        ViewGroup vg = (ViewGroup) inflater.inflate(R.layout.fragment_signup, container, false);
+
+        nameLogin = vg.findViewById(R.id.name_signup);
+        signupEmail = vg.findViewById(R.id.email_signup);
+        signupPass = vg.findViewById(R.id.password_signup);
+        signupPassConf = vg.findViewById(R.id.repeatPassword_signup);
+        signupButton = vg.findViewById(R.id.signupButton);
+
+        nameLogin.setTranslationX(800);
+        signupEmail.setTranslationX(800);
+        signupPass.setTranslationX(800);
+        signupPassConf.setTranslationX(800);
+        signupButton.setTranslationX(800);
+
+        nameLogin.setAlpha(v);
+        signupEmail.setAlpha(v);
+        signupPass.setAlpha(v);
+        signupPassConf.setAlpha(v);
+        signupButton.setAlpha(v);
+
+        nameLogin.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(300).start();
+        signupEmail.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(300).start();
+        signupPass.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(500).start();
+        signupPassConf.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(500).start();
+        signupButton.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(700).start();
+
+        return vg;
     }
 }

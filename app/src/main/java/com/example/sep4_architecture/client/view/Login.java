@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.sep4_architecture.R;
 
@@ -25,6 +27,12 @@ public class Login extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    TextView email;
+    TextView pass;
+    TextView forgetPass;
+    Button loginButton;
+    float v = 0;
 
     public Login() {
         // Required empty public constructor
@@ -61,6 +69,29 @@ public class Login extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false);
+        ViewGroup vg = (ViewGroup) inflater.inflate(R.layout.fragment_login, container, false);
+
+
+        email = vg.findViewById(R.id.email_login);
+        pass = vg.findViewById(R.id.password_login);
+        forgetPass = vg.findViewById(R.id.forgotPass);
+        loginButton = vg.findViewById(R.id.loginButton);
+
+        email.setTranslationX(800);
+        pass.setTranslationX(800);
+        forgetPass.setTranslationX(800);
+        loginButton.setTranslationX(800);
+
+        email.setAlpha(v);
+        pass.setAlpha(v);
+        forgetPass.setAlpha(v);
+        loginButton.setAlpha(v);
+
+        email.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(300).start();
+        pass.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(500).start();
+        forgetPass.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(500).start();
+        loginButton.animate().translationX(0).alpha(1).setDuration(800).setStartDelay(700).start();
+
+        return vg;
     }
 }

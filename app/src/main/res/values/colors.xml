@@ -5,4 +5,6 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="colorNavbar">#B9E4C9</color>
     <color name="colorNavbarText">#356859</color>
+    <color name="white">#FFFFFFFF</color>
+
 </resources>
