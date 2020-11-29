@@ -3,6 +3,6 @@
 
     <corners android:radius="20dp"/>
 
-    <solid android:color="@color/teal_700"/>
+    <solid android:color="@color/sign_log_btn"/>
 
 </shape>

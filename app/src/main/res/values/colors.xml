@@ -6,5 +6,6 @@
     <color name="colorNavbar">#B9E4C9</color>
     <color name="colorNavbarText">#356859</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="sign_log_btn">#E20A3023</color>
 
 </resources>

@@ -3,6 +3,8 @@ package com.example.sep4_architecture.model;
 import org.threeten.bp.LocalDate;
 import org.threeten.bp.LocalTime;
 
+
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

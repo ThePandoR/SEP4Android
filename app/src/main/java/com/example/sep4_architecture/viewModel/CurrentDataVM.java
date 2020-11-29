@@ -24,7 +24,7 @@ public class CurrentDataVM extends ViewModel {
 
     // public CurrentDataVM(GreenHouseClient client) {
     public CurrentDataVM() {
-        this.client = new GreenHouseClient("http://170.20.10.12:8080/");
+        this.client = new GreenHouseClient("http://database-sep.herokuapp.com/");
         measurement = new MutableLiveData<Measurement>();
     }
 
